@@ -6,6 +6,11 @@ import { CommunityPortal } from "./CommunityPortal";
 import { DeviceGrid } from "@/components/atlas/DeviceGrid";
 import { AlertFeed } from "@/components/atlas/AlertFeed";
 import { ForecastPanel } from "@/components/atlas/ForecastPanel";
+import { FoodStoragePage } from "./FoodStoragePage";
+import { WaterAirPage } from "./WaterAirPage";
+import { EnergyPage } from "./EnergyPage";
+import { FieldAgentPage } from "./FieldAgentPage";
+import { ControlCenterPage } from "./ControlCenterPage";
 
 type SurfaceType = "consumer" | "business" | "community" | "field" | "control";
 
@@ -39,9 +44,9 @@ export default function Index() {
         case "overview": return <ConsumerDashboard />;
         case "devices": return <div className="p-4"><DeviceGrid /></div>;
         case "alerts": return <div className="p-4"><AlertFeed /></div>;
-        case "food": return <PlaceholderView title="Food & Storage Intelligence" description="Spoilage risk forecasting, cold unit performance, freshness windows, and wastage trends." />;
-        case "water-air": return <PlaceholderView title="Water & Air" description="Water quality indicators, usage patterns, purification status, humidity, and ventilation recommendations." />;
-        case "energy": return <PlaceholderView title="Energy Monitoring" description="Real-time power usage, cost estimates, optimization suggestions, and grid stability feed." />;
+        case "food": return <FoodStoragePage />;
+        case "water-air": return <WaterAirPage />;
+        case "energy": return <EnergyPage />;
         case "reports": return <PlaceholderView title="Household Reports" description="Monthly savings, food waste avoided, water preserved, and environment health score." />;
         default: return <ConsumerDashboard />;
       }
@@ -75,18 +80,25 @@ export default function Index() {
 
     // Field agent surface
     if (activeSurface === "field") {
-      return <PlaceholderView
-        title={`Field Agent: ${activeView}`}
-        description="Mobile-first offline-capable interface for technicians — tasks, device install wizard, incident logging, and field surveys."
-      />;
+      switch (activeView) {
+        case "tasks": return <FieldAgentPage view="tasks" />;
+        case "install": return <FieldAgentPage view="install" />;
+        case "incidents": return <FieldAgentPage view="incidents" />;
+        case "survey": return <FieldAgentPage view="survey" />;
+        default: return <FieldAgentPage view="tasks" />;
+      }
     }
 
     // Control center
     if (activeSurface === "control") {
-      return <PlaceholderView
-        title={`Control Center: ${activeView}`}
-        description="Internal Atlas admin — tenant monitoring, alert engine tuning, model transparency, and simulation studio."
-      />;
+      switch (activeView) {
+        case "tenants": return <ControlCenterPage view="tenants" />;
+        case "alerts": return <ControlCenterPage view="alerts" />;
+        case "models": return <ControlCenterPage view="models" />;
+        case "simulation": return <ControlCenterPage view="simulation" />;
+        case "settings": return <ControlCenterPage view="settings" />;
+        default: return <ControlCenterPage view="tenants" />;
+      }
     }
 
     return <ConsumerDashboard />;
