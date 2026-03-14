@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import {
   CheckSquare, MapPin, Wifi, WifiOff, Camera, Mic,
   ChevronRight, Circle, CheckCircle2, AlertTriangle,
-  Wrench, FileText, Upload, Clock, User, ArrowRight
+  Wrench, FileText, Upload, Clock, User, ArrowRight, Droplets
 } from "lucide-react";
 
 type FieldView = "tasks" | "install" | "incidents" | "survey";
