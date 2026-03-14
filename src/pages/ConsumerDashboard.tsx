@@ -3,11 +3,11 @@ import {
   Thermometer, Droplets, Zap, Wind, UtensilsCrossed,
   ShieldCheck, TrendingUp, Leaf
 } from "lucide-react";
-import { MetricTile } from "../atlas/MetricTile";
-import { AlertFeed } from "../atlas/AlertFeed";
-import { DeviceGrid } from "../atlas/DeviceGrid";
-import { HealthScoreRing } from "../atlas/HealthScoreRing";
-import { ForecastPanel } from "../atlas/ForecastPanel";
+import { MetricTile } from "@/components/atlas/MetricTile";
+import { AlertFeed } from "@/components/atlas/AlertFeed";
+import { DeviceGrid } from "@/components/atlas/DeviceGrid";
+import { HealthScoreRing } from "@/components/atlas/HealthScoreRing";
+import { ForecastPanel } from "@/components/atlas/ForecastPanel";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export function ConsumerDashboard() {
